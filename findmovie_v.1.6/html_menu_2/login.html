@@ -29,6 +29,8 @@
 	<!-- YOUR CUSTOM CSS -->
 	<link href="css/custom.css" rel="stylesheet">
 
+	
+
 </head>
 
 <body>
@@ -80,7 +82,7 @@
 			<div class="container margin_60_35">
 				<div id="login-2">
 					<h1>Please login to Findmovie!</h1>
-					<form>
+					<form id="login-form">
 						<div class="box_form clearfix">
 							<div class="box_login">
 								<a href="#0" class="social_bt facebook">Login with Facebook</a>
@@ -89,19 +91,22 @@
 							</div>
 							<div class="box_login last">
 								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Your email address">
+									<input type="email" class="form-control" id="email" placeholder="Your email address">
 								</div>
 								<div class="form-group">
 									<input type="password" class="form-control" placeholder="Your password" id="password" name="password">
 									<a href="#0" class="forgot"><small>Forgot password?</small></a>
 								</div>
-								<div class="form-group">
-									<input class="btn_1" type="submit" value="Login">
+								<div class="form-group">									
+									<input class="btn_1" type="submit" name="login" id="quickstart-sign-in" >
+									<p id="loginstatusmessage"></p>
 								</div>
+								
 							</div>
 						</div>
 					</form>
 					<p class="text-center link_bright">Do not have an account yet? <a href="#0"><strong>Register now!</strong></a></p>
+									
 				</div>
 				<!-- /login -->
 			</div>
@@ -178,6 +183,36 @@
 	<div id="toTop"></div>
 	<!-- Back to top button -->
 
+		
+	<script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+
+	<!-- Add Firebase products that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+	
+	<script>
+	  // Your web app's Firebase configuration
+	  var firebaseConfig = {
+		apiKey: "AIzaSyDM9Uw6Xs67DO1jWQiH0ETXtziUabNg4nA",
+		authDomain: "find-movie-2de2a.firebaseapp.com",
+		databaseURL: "https://find-movie-2de2a.firebaseio.com",
+		projectId: "find-movie-2de2a",
+		storageBucket: "find-movie-2de2a.appspot.com",
+		messagingSenderId: "916883685756",
+		appId: "1:916883685756:web:adc598629bc2eb2121a4f9",
+		measurementId: "G-L8JX8Q5V1V"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();	
+	const auth = firebase.auth();
+	const db = firebase.firestore();
+	
+	</script>
+	<script src="authentication.js"></script>
+		
 	<!-- COMMON SCRIPTS -->
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/common_scripts.min.js"></script>
